@@ -275,6 +275,19 @@ button {
   box-shadow: 0 18px 34px rgba(37, 99, 235, 0.22);
 }
 
+.cta-button:disabled,
+.auth-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
+}
+
+.cta-button:not(:disabled),
+.auth-button:not(:disabled) {
+  transition: 0.25s ease;
+}
+
 .cta-button-secondary {
   background: rgba(15, 23, 42, 0.72);
   color: #dbeafe;
@@ -447,6 +460,10 @@ button {
 .quote-form {
   display: grid;
   gap: 16px;
+}
+
+.quote-form-card .auth-message {
+  margin-bottom: 16px;
 }
 
 .quote-grid {

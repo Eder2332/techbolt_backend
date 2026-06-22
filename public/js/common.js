@@ -35,6 +35,30 @@ async function apiRequest(url, options = {}) {
   return data;
 }
 
+const allowedEmailPattern = /^[A-Za-z0-9._%+-]+@(gmail\.com|tecsup\.edu\.pe|hotmail\.com|outlook\.com|yahoo\.com)$/i;
+const lettersAndSpacesPattern = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/;
+const messagePattern = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü0-9\s.,;:()\-]+$/;
+
+function normalizeWhitespace(value = '') {
+  return value.replace(/\s+/g, ' ').trim();
+}
+
+function sanitizeLettersOnly(value = '') {
+  return value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]/g, '').replace(/\s{2,}/g, ' ');
+}
+
+function sanitizeDigitsOnly(value = '') {
+  return value.replace(/\D/g, '');
+}
+
+function sanitizeMessageText(value = '') {
+  return value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñÜü0-9\s.,;:()\-]/g, '').replace(/[ \t]{2,}/g, ' ');
+}
+
+function isAllowedEmail(value = '') {
+  return allowedEmailPattern.test(value.trim());
+}
+
 async function getCurrentUser() {
   try {
     const data = await apiRequest('/auth/me');
@@ -203,8 +227,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.TecboltApp = {
   apiRequest,
+  allowedEmailPattern,
+  lettersAndSpacesPattern,
+  messagePattern,
   getCurrentUser,
+  isAllowedEmail,
   layoutReady,
+  normalizeWhitespace,
+  sanitizeDigitsOnly,
+  sanitizeLettersOnly,
+  sanitizeMessageText,
   setMessage,
   renderUserBox,
   syncActiveNavigation,

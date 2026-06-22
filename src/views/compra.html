@@ -65,45 +65,111 @@
               <h3>Solicitar cotización</h3>
               <p>Déjanos los datos básicos de tu institución para preparar una propuesta comercial.</p>
 
-              <form class="quote-form" id="quoteForm">
+              <div id="quoteFormMessage" class="auth-message hidden" aria-live="polite"></div>
+              <form class="quote-form" id="quoteForm" novalidate>
                 <div class="quote-grid">
                   <div class="form-group">
                     <label for="institutionName" class="form-label">Institución</label>
-                    <input class="form-input" type="text" id="institutionName" placeholder="Nombre del instituto o universidad" />
+                    <input
+                      class="form-input"
+                      type="text"
+                      id="institutionName"
+                      name="institutionName"
+                      placeholder="Nombre del instituto o universidad"
+                      required
+                      minlength="3"
+                      maxlength="80"
+                      autocomplete="organization"
+                    />
                   </div>
 
                   <div class="form-group">
                     <label for="contactName" class="form-label">Responsable</label>
-                    <input class="form-input" type="text" id="contactName" placeholder="Nombre del responsable" />
+                    <input
+                      class="form-input"
+                      type="text"
+                      id="contactName"
+                      name="contactName"
+                      placeholder="Nombre del responsable"
+                      required
+                      minlength="3"
+                      maxlength="80"
+                      autocomplete="name"
+                    />
                   </div>
 
                   <div class="form-group">
                     <label for="contactEmail" class="form-label">Correo</label>
-                    <input class="form-input" type="email" id="contactEmail" placeholder="correo@institucion.edu" />
+                    <input
+                      class="form-input"
+                      type="email"
+                      id="contactEmail"
+                      name="contactEmail"
+                      placeholder="correo@institucion.edu"
+                      required
+                      autocomplete="email"
+                    />
                   </div>
 
                   <div class="form-group">
                     <label for="contactPhone" class="form-label">Teléfono</label>
-                    <input class="form-input" type="text" id="contactPhone" placeholder="Número de contacto" />
+                    <input
+                      class="form-input"
+                      type="text"
+                      id="contactPhone"
+                      name="contactPhone"
+                      placeholder="Número de contacto"
+                      required
+                      inputmode="numeric"
+                      minlength="9"
+                      maxlength="9"
+                      autocomplete="tel"
+                    />
                   </div>
 
                   <div class="form-group">
                     <label for="deviceCount" class="form-label">Cantidad de dispoitivos pensados</label>
-                    <input class="form-input" type="number" id="deviceCount" placeholder="Ej. 10" />
+                    <input
+                      class="form-input"
+                      type="text"
+                      id="deviceCount"
+                      name="deviceCount"
+                      placeholder="Ej. 10"
+                      required
+                      inputmode="numeric"
+                      maxlength="4"
+                    />
                   </div>
 
                   <div class="form-group">
                     <label for="institutionType" class="form-label">Tipo de institución</label>
-                    <input class="form-input" type="text" id="institutionType" placeholder="Instituto o universidad" />
+                    <input
+                      class="form-input"
+                      type="text"
+                      id="institutionType"
+                      name="institutionType"
+                      placeholder="Instituto o universidad"
+                      required
+                      minlength="3"
+                      maxlength="40"
+                    />
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="quoteMessage" class="form-label">Mensaje</label>
-                  <textarea class="form-input quote-textarea" id="quoteMessage" placeholder="Cuéntanos cuántas aulas o sedes deseas implementar."></textarea>
+                  <textarea
+                    class="form-input quote-textarea"
+                    id="quoteMessage"
+                    name="quoteMessage"
+                    placeholder="Cuéntanos cuántas aulas o sedes deseas implementar."
+                    required
+                    minlength="10"
+                    maxlength="280"
+                  ></textarea>
                 </div>
 
-                <button type="submit" class="cta-button">Solicitar propuesta comercial</button>
+                <button type="submit" class="cta-button" id="quoteSubmitButton" disabled>Solicitar propuesta comercial</button>
               </form>
             </article>
           </div>

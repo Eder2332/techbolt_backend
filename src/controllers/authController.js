@@ -8,12 +8,13 @@ async function register(req, res) {
   try {
     const { fullName, email, password, confirmPassword } = req.body;
     const errors = validateRegisterInput({ fullName, email, password, confirmPassword });
+    const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
 
     if (errors.length > 0) {
       return res.status(400).json({ message: errors.join(' ') });
     }
 
-    const existingUser = await getUserByEmail(email);
+    const existingUser = await getUserByEmail(normalizedEmail);
 
     if (existingUser) {
       return res.status(409).json({ message: 'Ya existe una cuenta registrada con ese correo.' });
@@ -22,7 +23,7 @@ async function register(req, res) {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await createUser({
       fullName: fullName.trim(),
-      email: email.trim(),
+      email: normalizedEmail,
       password: hashedPassword,
       role: 'profesor'
     });
@@ -48,12 +49,13 @@ async function login(req, res) {
   try {
     const { email, password } = req.body;
     const errors = validateLoginInput({ email, password });
+    const normalizedEmail = typeof email === 'string' ? email.trim().toLowerCase() : '';
 
     if (errors.length > 0) {
       return res.status(400).json({ message: errors.join(' ') });
     }
 
-    const user = await getUserByEmail(email);
+    const user = await getUserByEmail(normalizedEmail);
 
     if (!user) {
       return res.status(401).json({ message: 'Credenciales inválidas.' });
