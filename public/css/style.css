@@ -460,6 +460,113 @@ button {
   resize: vertical;
 }
 
+.proposal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.proposal-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.proposal-modal-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 460px);
+  padding: 30px 24px 24px;
+  border-radius: 24px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
+  border: 1px solid rgba(34, 211, 238, 0.24);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+}
+
+.proposal-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.proposal-modal-close:hover {
+  transform: scale(1.05);
+  background: rgba(30, 41, 59, 0.96);
+}
+
+.proposal-modal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  margin: 4px auto 18px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.22), rgba(37, 99, 235, 0.38));
+  box-shadow: 0 16px 32px rgba(14, 165, 233, 0.24);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proposal-modal-icon:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 20px 36px rgba(37, 99, 235, 0.3);
+}
+
+.proposal-modal-icon-svg {
+  width: 42px;
+  height: 42px;
+  fill: #facc15;
+}
+
+.proposal-modal-card h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+}
+
+.proposal-modal-card p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.proposal-modal-card-celebrating .proposal-modal-icon {
+  animation: proposal-pop 0.55s ease;
+}
+
+@keyframes proposal-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.15) rotate(8deg);
+  }
+
+  70% {
+    transform: scale(0.96) rotate(-6deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
 .pilot-banner {
   display: grid;
   gap: 20px;

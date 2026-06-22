@@ -65,7 +65,7 @@
               <h3>Solicitar cotización</h3>
               <p>Déjanos los datos básicos de tu institución para preparar una propuesta comercial.</p>
 
-              <form class="quote-form">
+              <form class="quote-form" id="quoteForm">
                 <div class="quote-grid">
                   <div class="form-group">
                     <label for="institutionName" class="form-label">Institución</label>
@@ -103,13 +103,29 @@
                   <textarea class="form-input quote-textarea" id="quoteMessage" placeholder="Cuéntanos cuántas aulas o sedes deseas implementar."></textarea>
                 </div>
 
-                <a href="/" class="cta-button">Solicitar propuesta comercial</a>
+                <button type="submit" class="cta-button">Solicitar propuesta comercial</button>
               </form>
             </article>
           </div>
         </div>
       </section>
     </main>
+
+    <div class="proposal-modal hidden" id="proposalModal" aria-hidden="true">
+      <div class="proposal-modal-backdrop" data-close-modal="true"></div>
+      <div class="proposal-modal-card" role="dialog" aria-modal="true" aria-labelledby="proposalModalTitle">
+        <button type="button" class="proposal-modal-close" id="proposalModalClose" aria-label="Cerrar ventana">
+          X
+        </button>
+        <button type="button" class="proposal-modal-icon" id="proposalModalIcon" aria-label="Interactuar con el icono">
+          <svg viewBox="0 0 24 24" class="proposal-modal-icon-svg" aria-hidden="true">
+            <path d="M12 2 14.9 8.1 22 9.1 17 14 18.2 21 12 17.7 5.8 21 7 14 2 9.1 9.1 8.1 12 2Z"></path>
+          </svg>
+        </button>
+        <h3 id="proposalModalTitle">Gracias por solicitar nuestro producto</h3>
+        <p id="proposalModalText">Hemos recibido tu interés y pronto podremos compartirte una propuesta comercial.</p>
+      </div>
+    </div>
 
     <div id="siteFooter"></div>
   </body>
