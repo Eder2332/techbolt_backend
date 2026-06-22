@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Tecbolt</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/common.js" defer></script>
+    <script src="/js/login.js" defer></script>
+  </head>
+  <body class="auth-page" data-no-layout="true">
+    <main class="auth-page-main">
+      <section class="auth-shell">
+        <div class="auth-panel">
+          <a href="/" class="auth-brand">
+            <img src="/images/logo-tecbolt.png" alt="Logo Tecbolt" class="auth-logo" />
+            <span class="brand-text">
+              <span class="auth-brand-name">Tecbolt</span>
+              <span class="brand-tagline">Tecnología en tus manos</span>
+            </span>
+          </a>
+
+          <p class="auth-kicker">Acceso seguro a la plataforma</p>
+          <h1 class="auth-title">Login</h1>
+          <p class="auth-description">Ingresa a tu cuenta para continuar en Tecbolt.</p>
+
+          <div id="authMessage" class="auth-message hidden"></div>
+
+          <form id="loginForm" class="auth-form">
+            <div class="form-group">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input class="form-input" type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="form-label">Contraseña</label>
+              <input class="form-input" type="password" id="password" name="password" required />
+            </div>
+
+            <button type="submit" class="auth-button">Ingresar</button>
+          </form>
+
+          <div class="auth-footer-links">
+            <p>¿Aún no tienes cuenta? <a href="/auth/register">Regístrate</a></p>
+            <p><a href="/">Volver al inicio</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

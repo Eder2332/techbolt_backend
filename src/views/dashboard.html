@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Tecbolt</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/common.js" defer></script>
+    <script src="/js/dashboard.js" defer></script>
+  </head>
+  <body class="home-page">
+    <div id="siteHeader"></div>
+
+    <main class="home-main">
+      <section class="hero dashboard-hero">
+        <p class="hero-badge">Panel principal</p>
+        <h1>Dashboard Tecbolt</h1>
+        <p class="hero-text" id="dashboardWelcome">Cargando información del usuario...</p>
+
+        <div class="dashboard-grid">
+          <article class="dashboard-card">
+            <h2>Usuario</h2>
+            <p><strong>Nombre:</strong> <span id="dashboardUserName">-</span></p>
+            <p><strong>Correo:</strong> <span id="dashboardUserEmail">-</span></p>
+            <p><strong>Rol:</strong> <span id="dashboardUserRole">-</span></p>
+          </article>
+
+          <article class="dashboard-card">
+            <h2>Resumen del producto</h2>
+            <ul class="dashboard-list">
+              <li>Tecbolt registra asistencia por huella dactilar en cada aula.</li>
+              <li>El dispositivo usa la plataforma de asistencia automáticamente.</li>
+              <li>Se podrán enviar notificaciones al profesor por asistencia tomada.</li>
+              <li>También se podrán mostrar alertas por inasistencia, DI y alumnos sin registro de asistencia.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="siteFooter"></div>
+  </body>
+</html>
